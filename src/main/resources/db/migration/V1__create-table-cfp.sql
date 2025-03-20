@@ -1,0 +1,9 @@
+CREATE TABLE cfps (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    summary TEXT NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    date DATETIME NOT NULL,
+    CONSTRAINT unique_email UNIQUE (email)
+);
