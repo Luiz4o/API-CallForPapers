@@ -1,6 +1,7 @@
 package com.luizsoftware.desafiopcfp.controller;
 
 import com.luizsoftware.desafiopcfp.dto.UserDTO;
+import com.luizsoftware.desafiopcfp.exception.UserLoginException;
 import com.luizsoftware.desafiopcfp.model.User;
 import com.luizsoftware.desafiopcfp.dto.TokenJwtDTO;
 import com.luizsoftware.desafiopcfp.repository.UserRepository;
@@ -51,6 +52,11 @@ public class UserController {
     @Transactional
     public ResponseEntity register(@RequestBody @Valid UserDTO data) {
         String encryptedPassword = security.passwordEncoder().encode(data.senha());
+
+        var verifyUser = repository.findByLogin(data.login());
+        if(verifyUser.isPresent()){
+            throw new UserLoginException("O usuário informado já está em uso");
+        }
 
         User user = new User(data.login(), encryptedPassword);
 

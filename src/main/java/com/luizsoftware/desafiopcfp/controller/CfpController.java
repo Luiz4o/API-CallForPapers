@@ -5,6 +5,11 @@ import com.luizsoftware.desafiopcfp.dto.CfpGetDTO;
 import com.luizsoftware.desafiopcfp.dto.CfpUpdateDTO;
 import com.luizsoftware.desafiopcfp.model.Cfp;
 import com.luizsoftware.desafiopcfp.repository.CfpRepository;
+import com.luizsoftware.desafiopcfp.security.SecurityConfig;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,7 +31,6 @@ public class CfpController {
     @PostMapping
     @Transactional
     public ResponseEntity createProposal(@RequestBody @Valid CfpCreateDTO data){
-
         Cfp cfp = new Cfp(data, LocalDateTime.now());
 
         repository.save(cfp);
