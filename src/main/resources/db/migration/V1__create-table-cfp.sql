@@ -4,6 +4,5 @@ CREATE TABLE cfps (
     summary TEXT NOT NULL,
     author VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    date DATETIME NOT NULL,
-    CONSTRAINT unique_email UNIQUE (email)
+    date DATETIME NOT NULL
 );

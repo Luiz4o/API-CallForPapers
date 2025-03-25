@@ -1,9 +1,7 @@
 create table users(
 
-    id bigint not null auto_increment,
-    login varchar(100) not null,
-    senha varchar(255) not null,
-
-    primary key(id)
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
 
 );
