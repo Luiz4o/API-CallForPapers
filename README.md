@@ -59,6 +59,12 @@ Login: teste
 
 Senha: teste
 
+6. Front End:
+
+Caso queira ver toda a experiência aqui está disponibilizado o FrontEnd da aplicação que pode ser utilizado junto desta API
+
+Link github : https://github.com/Luiz4o/CallForPapers-Angular
+
 Endpoints Disponíveis
 
 POST : http://localhost:8080/user/register
